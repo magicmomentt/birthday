@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <main id="app">
+        <!-- STEP 1: Password Puzzle -->
+        <section id="step-1" class="step active">
+            <div class="content">
+                <h1>Unlock the Surprise</h1>
+                <p class="riddle">“This isn’t just a date.<br>It’s the day the world got luckier.<br>The day someone
+                    very special was born.<br>Write it… and begin the surprise.”</p>
+                <div class="input-group">
+                    <input type="text" id="password-input" placeholder="DDMMYYYY" maxlength="8">
+                    <button id="unlock-btn">Unlock 🔓</button>
+                </div>
+                <p id="error-msg" class="hidden">Try again... ✨</p>
+            </div>
+        </section>
+
+        <!-- STEP 2: Birthday Celebration -->
+        <section id="step-2" class="step hidden">
+            <div class="content">
+                <div id="countdown" class="hidden">5</div>
+                <div id="celebration-scene" class="hidden">
+                    <div class="cake-container">
+                        <div class="cake">
+                            <div class="candle">
+                                <div class="flame"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h1>Happy Birthday! 🎂</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 3: Make a Wish -->
+        <section id="step-3" class="step hidden">
+            <div class="content">
+                <h1 class="glow-text">Make a wish ✨</h1>
+                <p>Close your eyes…</p>
+                <p>Some moments are meant to be felt, not rushed.</p>
+            </div>
+        </section>
+
+        <!-- STEP 4: Gift Reveal -->
+        <section id="step-4" class="step hidden">
+            <div class="content">
+                <h2>Open Me 🎁</h2>
+                <div id="gift-box" class="gift-box">
+                    <div class="lid"></div>
+                    <div class="box"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 5: Final Message -->
+        <section id="step-5" class="step hidden">
+            <div class="content msg-container">
+                <h1>Happy Birthday 🤍</h1>
+                <p>Today isn’t just your birthday.<br>It’s the day the world became a better place —<br>because you were
+                    born.</p>
+                <p>You are more special than words can explain,<br>and more loved than you may ever realize.</p>
+                <p>I hope every wish you make finds its way to you,<br>just like you found your way into my life.</p>
+                <p class="highlight">This was made just for you. 🎂✨</p>
+                <button id="next-to-slideshow-btn" class="secondary-btn">Memories ➡️</button>
+            </div>
+        </section>
+
+        <!-- STEP 6: Slideshow -->
+        <section id="step-6" class="step hidden">
+            <div class="content">
+                <h2>Memories I never want to forget…</h2>
+                <div class="slideshow-container">
+                    <div class="slide active-slide" style="background-color: #ffcad4;"><span>Photo 1 Placeholder</span>
+                    </div>
+                    <div class="slide" style="background-color: #b0c2f2;"><span>Photo 2 Placeholder</span></div>
+                    <div class="slide" style="background-color: #e2f0cb;"><span>Photo 3 Placeholder</span></div>
+                </div>
+                <button id="replay-btn" class="replay-btn">Replay the Surprise 💖</button>
+            </div>
+        </section>
+    </main>
+
+    <div class="audio-controls">
+        <div id="mute-btn" class="audio-control">🔇</div>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
+    </div>
+    <audio id="bg-music" loop>
+        <source src="assets/birthday-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</body>
+
+</html>
