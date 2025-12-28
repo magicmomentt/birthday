@@ -408,6 +408,13 @@ button:hover {
     border: 2px dashed #ddd;
 }
 
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
 /* Audio Control */
 /* Audio Control styles are now handled above */
 
