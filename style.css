@@ -31,7 +31,7 @@ body {
 #app {
     width: 100%;
     max-width: 600px;
-    padding: 2rem;
+    padding: clamp(1rem, 3vw, 2rem);
     text-align: center;
     position: relative;
     min-height: 80vh;
@@ -67,8 +67,16 @@ h3 {
     color: var(--accent-color);
 }
 
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
 p {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
     line-height: 1.6;
     margin-bottom: 1.5rem;
 }
@@ -83,24 +91,27 @@ p {
 
 input {
     padding: 10px 15px;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
     border: 2px solid var(--primary-color);
     border-radius: 25px;
     outline: none;
     text-align: center;
-    width: 80%;
+    width: min(80%, 400px);
+    max-width: 100%;
     background: rgba(255, 255, 255, 0.8);
 }
 
 button {
-    padding: 10px 25px;
-    font-size: 1.1rem;
+    padding: clamp(10px, 2vw, 12px) clamp(20px, 4vw, 25px);
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
     background-color: var(--accent-color);
     color: white;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     transition: transform 0.2s, background-color 0.2s;
+    min-height: 44px;
+    white-space: nowrap;
 }
 
 button:hover {
@@ -348,9 +359,10 @@ button:hover {
 /* Step 5: Message */
 .msg-container {
     background: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
 }
 
 /* Slideshow */
@@ -429,29 +441,304 @@ button:hover {
 }
 
 /* Mobile Responsiveness */
-@media (max-width: 600px) {
+
+/* Extra Small Devices (phones, less than 400px) */
+@media (max-width: 399px) {
+    #app {
+        padding: 0.75rem;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+
+    .riddle {
+        font-size: 0.9rem;
+    }
+
+    input {
+        font-size: 1rem;
+        padding: 8px 12px;
+        width: 90%;
+    }
+
+    button {
+        padding: 12px 24px;
+        font-size: 1rem;
+        min-height: 44px;
+        /* Touch-friendly */
+    }
+
+    #countdown {
+        font-size: 3.5rem;
+    }
+
+    .cake-container {
+        transform: scale(0.65);
+        margin: 20px auto;
+    }
+
+    .gift-box {
+        transform: scale(0.7);
+        margin: 30px auto;
+    }
+
+    .gift-box:hover,
+    .gift-box:active {
+        transform: scale(0.75);
+    }
+
+    .slideshow-container {
+        height: 200px;
+        max-width: 100%;
+    }
+
+    .msg-container {
+        padding: 1.25rem;
+    }
+
+    .audio-controls {
+        bottom: 10px;
+        right: 10px;
+        padding: 8px;
+        gap: 8px;
+    }
+
+    .audio-control {
+        font-size: 1.25rem;
+    }
+
+    #volume-slider {
+        width: 60px;
+    }
+}
+
+/* Small Devices (phones, 400px to 600px) */
+@media (min-width: 400px) and (max-width: 600px) {
     #app {
         padding: 1rem;
+        max-width: 100%;
     }
 
     h1 {
         font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    input {
+        font-size: 1.1rem;
+        padding: 10px 15px;
+        width: 85%;
+    }
+
+    button {
+        padding: 12px 28px;
+        font-size: 1.05rem;
+        min-height: 44px;
+        /* Touch-friendly */
+    }
+
+    #countdown {
+        font-size: 4rem;
     }
 
     .cake-container {
-        transform: scale(0.8);
-        margin: 30px auto;
+        transform: scale(0.75);
+        margin: 25px auto;
     }
 
     .gift-box {
         transform: scale(0.8);
+        margin: 40px auto;
     }
 
-    .gift-box:hover {
+    .gift-box:hover,
+    .gift-box:active {
         transform: scale(0.85);
     }
 
     .slideshow-container {
         height: 250px;
+    }
+
+    .msg-container {
+        padding: 1.5rem;
+    }
+
+    .audio-controls {
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* Medium Devices (tablets, 601px to 768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+    #app {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.05rem;
+    }
+
+    input {
+        width: 75%;
+        font-size: 1.15rem;
+    }
+
+    button {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+
+    #countdown {
+        font-size: 4.5rem;
+    }
+
+    .cake-container {
+        transform: scale(0.85);
+        margin: 35px auto;
+    }
+
+    .gift-box {
+        transform: scale(0.9);
+    }
+
+    .gift-box:hover {
+        transform: scale(0.95);
+    }
+
+    .slideshow-container {
+        height: 300px;
+    }
+}
+
+/* Large Tablets and Small Desktops (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #app {
+        max-width: 700px;
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 2.75rem;
+    }
+
+    .slideshow-container {
+        height: 380px;
+    }
+}
+
+/* Landscape Orientation Adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+    body {
+        overflow-y: auto;
+    }
+
+    #app {
+        min-height: auto;
+        padding: 1rem;
+    }
+
+    .step {
+        position: relative;
+    }
+
+    #countdown {
+        font-size: 3rem;
+    }
+
+    .cake-container {
+        transform: scale(0.6);
+        margin: 15px auto;
+    }
+
+    .gift-box {
+        transform: scale(0.7);
+        margin: 20px auto;
+    }
+
+    .slideshow-container {
+        height: 200px;
+    }
+
+    .msg-container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+}
+
+/* Touch Device Improvements */
+@media (hover: none) and (pointer: coarse) {
+    button {
+        min-height: 48px;
+        /* Larger touch targets */
+        padding: 14px 30px;
+    }
+
+    input {
+        min-height: 48px;
+        font-size: 16px;
+        /* Prevents zoom on iOS */
+    }
+
+    .gift-box {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Remove hover effects on touch devices */
+    button:hover {
+        transform: none;
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    .gift-box:hover {
+        transform: scale(1);
+    }
+
+    .gift-box:active {
+        transform: scale(0.95);
     }
 }
